@@ -60,7 +60,7 @@ jobs:
           name: Deploy the site.
           command: |
             . venv/bin/activate
-            cd ryr-docs && mkdocs dh-deploy -v --clean
+            cd ryr-docs && mkdocs gh-deploy -v --clean
 
 workflows:
   version: 2
