@@ -10,8 +10,8 @@ help: # Display help
 			printf "\033[36m%-30s\033[0m %s\n", $$1, $$NF \
 		}' $(MAKEFILE_LIST) | sort
 
-build: ## Build the documentatrion site
-	mkdocs build
+build: venv ## Build the documentatrion site
+	cd ryr-docs && mkdocs build -v -s
 
 setup: venv ## Setup the full environment (default)
 
