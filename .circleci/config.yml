@@ -38,6 +38,24 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - deps-{{ checksum "requirements/local.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - deps-
+
+      - run:
+          name: Install dependencies.
+          command: make venv
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: deps-{{ checksum "requirements/local.txt" }}
+
       - run:
           name: Deploy the site.
           command: |
