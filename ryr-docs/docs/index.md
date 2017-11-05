@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# Request Yo Racks (Now)!
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+The city of Austin offers the possibility to apply for the [free installation of bike corrals on the right of way/parking spot close to businesses](http://www.austintexas.gov/bicycle). The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).
 
-## Commands
+But there are two problems with this approach:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+* The first problem is that people do not want to spend the time to write the email and collect the necessary information.
 
-## Project layout
+* The second one is that, in spite of the fact that the people in charge of the program are willing to help, the process is not completely straightforward:
+> "There will generally be at least a few back and forth messages associated with a bike parking request."
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+“Request yo rack” proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:
+
+1. Select the location on the map
+2. Review/Edit the information
+3. Submit
