@@ -56,6 +56,10 @@ jobs:
             - ./venv
           key: deps-{{ checksum "requirements/local.txt" }}
 
+      - add_ssh_keys:
+        fingerprints:
+          - "0b:0b:0f:19:89:13:94:a8:34:30:b4:13:cb:90:78:25"
+
       - run:
           name: Deploy the site.
           command: |
