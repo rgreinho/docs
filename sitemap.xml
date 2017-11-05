@@ -10,11 +10,23 @@
     
 
     
+        
     <url>
-     <loc>/about/</loc>
+     <loc>/developer-zone/technical-overview/</loc>
      <lastmod>2017-11-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/about/license/</loc>
+     <lastmod>2017-11-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

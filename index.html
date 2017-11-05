@@ -48,8 +48,23 @@
                     <li class="active">
                         <a href=".">Home</a>
                     </li>
-                    <li >
-                        <a href="about/">About</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developer Zone <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="developer-zone/technical-overview/">Technical Overview</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="about/license/">License</a>
+</li>
+                        </ul>
                     </li>
                 </ul>
 
@@ -65,7 +80,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="about/">
+                        <a rel="prev" href="developer-zone/technical-overview/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -77,28 +92,31 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#welcome-to-mkdocs">Welcome to MkDocs</a></li>
-            <li><a href="#commands">Commands</a></li>
-            <li><a href="#project-layout">Project layout</a></li>
+        <li class="main active"><a href="#request-yo-racks-now">Request Yo Racks (Now)!</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="http://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="request-yo-racks-now">Request Yo Racks (Now)!</h1>
+<p>The city of Austin offers the possibility to apply for the <a href="http://www.austintexas.gov/bicycle">free installation of bike corrals on the right of way/parking spot close to businesses</a>. The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).</p>
+<p>But there are two problems with this approach:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
+<li>
+<p>The first problem is that people do not want to spend the time to write the email and collect the necessary information.</p>
+</li>
+<li>
+<p>The second one is that, in spite of the fact that the people in charge of the program are willing to help, the process is not completely straightforward:</p>
+<blockquote>
+<p>"There will generally be at least a few back and forth messages associated with a bike parking request."</p>
+</blockquote>
+</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>“Request yo rack” proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:</p>
+<ol>
+<li>Select the location on the map</li>
+<li>Review/Edit the information</li>
+<li>Submit</li>
+</ol></div>
         </div>
 
         <footer class="col-md-12">
@@ -180,5 +198,5 @@ docs/
 
 <!--
 MkDocs version : 0.17.1
-Build Date UTC : 2017-11-05 20:52:52
+Build Date UTC : 2017-11-05 22:12:48
 -->

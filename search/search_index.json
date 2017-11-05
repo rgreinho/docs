@@ -2,58 +2,53 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "text": "Request Yo Racks (Now)!\n\n\nThe city of Austin offers the possibility to apply for the \nfree installation of bike corrals on the right of way/parking spot close to businesses\n. The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).\n\n\nBut there are two problems with this approach:\n\n\n\n\n\n\nThe first problem is that people do not want to spend the time to write the email and collect the necessary information.\n\n\n\n\n\n\nThe second one is that, in spite of the fact that the people in charge of the program are willing to help, the process is not completely straightforward:\n\n\n\n\n\"There will generally be at least a few back and forth messages associated with a bike parking request.\"\n\n\n\n\n\n\n\n\n\u201cRequest yo rack\u201d proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:\n\n\n\n\nSelect the location on the map\n\n\nReview/Edit the information\n\n\nSubmit",
             "title": "Home"
         },
         {
-            "location": "/#welcome-to-mkdocs",
-            "text": "For full documentation visit  mkdocs.org .",
-            "title": "Welcome to MkDocs"
+            "location": "/#request-yo-racks-now",
+            "text": "The city of Austin offers the possibility to apply for the  free installation of bike corrals on the right of way/parking spot close to businesses . The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).  But there are two problems with this approach:    The first problem is that people do not want to spend the time to write the email and collect the necessary information.    The second one is that, in spite of the fact that the people in charge of the program are willing to help, the process is not completely straightforward:   \"There will generally be at least a few back and forth messages associated with a bike parking request.\"     \u201cRequest yo rack\u201d proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:   Select the location on the map  Review/Edit the information  Submit",
+            "title": "Request Yo Racks (Now)!"
         },
         {
-            "location": "/#commands",
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
-            "title": "Commands"
+            "location": "/developer-zone/technical-overview/",
+            "text": "Technical overview\n\n\nRequest Yo Racks is a collection of open source projects hosted on Github.\n\n\nKey principles\n\n\n\n\nEverything must be automated.\n\n\nEverything must be documented.\n\n\nEverything must be containerized.\n\n\n\n\nAPI\n\n\nThe API is done in \nPython\n. We currently use \nDjango REST Framework\n (DRF), but will possibly switch to \nAPIStar\n in a near future.\n\n\nThe tasks will be handled by \nCelery\n to process them asynchronously.\n\n\nALL the documentation is written in \nreStructuredText\n and generated with \nSphinx\n\n\nRepository: \nAPI\n\n\nWeb\n\n\nThe frontend is a \nProgressive Web Application (PWA)\n. The \nPolymer\n library offers the ability to quickly create a PWA implementing the \nPRPL pattern\n, and to build\n web components\n.\n\n\nRepository: \nWeb\n\n\nInfrastructure\n\n\nThe projects are fully containerized using \nDocker\n and will be deployed on a \nKubernetes\n cluster, most likely on the \nGCP\n.",
+            "title": "Technical Overview"
         },
         {
-            "location": "/#project-layout",
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
-            "title": "Project layout"
+            "location": "/developer-zone/technical-overview/#technical-overview",
+            "text": "Request Yo Racks is a collection of open source projects hosted on Github.",
+            "title": "Technical overview"
         },
         {
-            "location": "/about/",
-            "text": "Magniloquo erat paverunt\n\n\nColebas sibi venit temptant arsisses media\n\n\nLorem markdownum, visa omnia viscera, muneris verbere quantumque \narguitur\nprecibusque amori\n celeri \nest Liber\nfrater\n. Facta volucres potuitque\nArethusa: me atrorum vittisconcutiens te demisit concolor exanimata ut hiberna\niaculo, obvertit. \nSaevae in\n adsiduis, ad et ad dederat teste inclita\nconstituit est vota. Cava puer, est terga flectere, alta adspicit: coniugis\nsacrorum patrioque, tamen Philemon quidam, ad paventes.\n\n\nEgressus etiam nondum\n\n\nFuit quis\n de quidem ab, capillos egreditur pater obliquum qua fameque super,\nSeriphi. Contigit referunt paventis, et ferreus levant in ter sua. Eris num;\nartus milite, ego dis est quam est illud a spectas dolor iamque. Excipit poscit\nne pondere manus, numenque in, est nymphen promissa.\n\n\n\n\nAdibat inrupit venit Saturnia mulcet procul facinusque\n\n\nFissus maritum lectus movente\n\n\nAbscidit Tritona\n\n\nPectora seges Anthedone temptarunt et tenus dare\n\n\nIpsis Dymantida\n\n\nRigorem suo turres silva\n\n\n\n\nVix petendo fugit in quas accepisse nimis\n\n\nInemptum membra et inopino tanti tenentibus quid Arachnes lenius timebam\nrogantem. Canit instrumenta urbes passosque lutea artus non, subiere incipit\nnefanda bene. Talibus expersque, pressit conlegit ad sensit solent leve: caperet\nserva res cultros crederet quo; Salmacis. Acres tumulo deductus et Somnus\ninvitis. Nunc et, sic fassurae novae, ille disiecta, ille?\n\n\nGraia animos meque arboribus regis et quaeque\n\n\nFessis cui iam\n vestrae, quodam, nec templum vale, si esse: me! Nescit templa.\nQua magis, removerat Iuno trahebat illis insequitur et miserum nos poteras ipse\nmundi praemia, sine. Echion concita terris lacus, illa nubifer \naristis\nconcrevit\n nepos arripit sine spatium debuerant eripuit morer et verba edere;\nibi.\n\n\nQuod illis ripam tu certeque convertit probat\n\n\nMelior inprudens Calydona \nnobis\n, Lucifer communia. \nCura\nanimis ferum\n te \npremebat unda\n\nvestigia, truncum, viribus praeferret o. Unius limes et culpa illa sustinet,\nvelocius meo et tela, pro dum labore, patriam, aut?\n\n\n\n\nFecunda ecquis pro semper\n\n\nMutatis vestigia undas\n\n\nQui mutavit annis\n\n\nProhibente fusus\n\n\nVultus porta\n\n\n\n\nHorrent fas euntem abest. Letum erat pater, avum \nanimum ego\n: lectum quoque\ningenti et Aulide \nper\n. Huc est ait tradere videres praebebat spirantis undas\nex Dianae omnia praelatum isto.",
-            "title": "About"
+            "location": "/developer-zone/technical-overview/#key-principles",
+            "text": "Everything must be automated.  Everything must be documented.  Everything must be containerized.",
+            "title": "Key principles"
         },
         {
-            "location": "/about/#magniloquo-erat-paverunt",
-            "text": "",
-            "title": "Magniloquo erat paverunt"
+            "location": "/developer-zone/technical-overview/#api",
+            "text": "The API is done in  Python . We currently use  Django REST Framework  (DRF), but will possibly switch to  APIStar  in a near future.  The tasks will be handled by  Celery  to process them asynchronously.  ALL the documentation is written in  reStructuredText  and generated with  Sphinx  Repository:  API",
+            "title": "API"
         },
         {
-            "location": "/about/#colebas-sibi-venit-temptant-arsisses-media",
-            "text": "Lorem markdownum, visa omnia viscera, muneris verbere quantumque  arguitur\nprecibusque amori  celeri  est Liber\nfrater . Facta volucres potuitque\nArethusa: me atrorum vittisconcutiens te demisit concolor exanimata ut hiberna\niaculo, obvertit.  Saevae in  adsiduis, ad et ad dederat teste inclita\nconstituit est vota. Cava puer, est terga flectere, alta adspicit: coniugis\nsacrorum patrioque, tamen Philemon quidam, ad paventes.",
-            "title": "Colebas sibi venit temptant arsisses media"
+            "location": "/developer-zone/technical-overview/#web",
+            "text": "The frontend is a  Progressive Web Application (PWA) . The  Polymer  library offers the ability to quickly create a PWA implementing the  PRPL pattern , and to build  web components .  Repository:  Web",
+            "title": "Web"
         },
         {
-            "location": "/about/#egressus-etiam-nondum",
-            "text": "Fuit quis  de quidem ab, capillos egreditur pater obliquum qua fameque super,\nSeriphi. Contigit referunt paventis, et ferreus levant in ter sua. Eris num;\nartus milite, ego dis est quam est illud a spectas dolor iamque. Excipit poscit\nne pondere manus, numenque in, est nymphen promissa.   Adibat inrupit venit Saturnia mulcet procul facinusque  Fissus maritum lectus movente  Abscidit Tritona  Pectora seges Anthedone temptarunt et tenus dare  Ipsis Dymantida  Rigorem suo turres silva",
-            "title": "Egressus etiam nondum"
+            "location": "/developer-zone/technical-overview/#infrastructure",
+            "text": "The projects are fully containerized using  Docker  and will be deployed on a  Kubernetes  cluster, most likely on the  GCP .",
+            "title": "Infrastructure"
         },
         {
-            "location": "/about/#vix-petendo-fugit-in-quas-accepisse-nimis",
-            "text": "Inemptum membra et inopino tanti tenentibus quid Arachnes lenius timebam\nrogantem. Canit instrumenta urbes passosque lutea artus non, subiere incipit\nnefanda bene. Talibus expersque, pressit conlegit ad sensit solent leve: caperet\nserva res cultros crederet quo; Salmacis. Acres tumulo deductus et Somnus\ninvitis. Nunc et, sic fassurae novae, ille disiecta, ille?",
-            "title": "Vix petendo fugit in quas accepisse nimis"
+            "location": "/about/license/",
+            "text": "License\n\n\n\"Request Yo Racks\" is a collection of open source projects licensed under \nThe MIT License\n.",
+            "title": "License"
         },
         {
-            "location": "/about/#graia-animos-meque-arboribus-regis-et-quaeque",
-            "text": "Fessis cui iam  vestrae, quodam, nec templum vale, si esse: me! Nescit templa.\nQua magis, removerat Iuno trahebat illis insequitur et miserum nos poteras ipse\nmundi praemia, sine. Echion concita terris lacus, illa nubifer  aristis\nconcrevit  nepos arripit sine spatium debuerant eripuit morer et verba edere;\nibi.",
-            "title": "Graia animos meque arboribus regis et quaeque"
-        },
-        {
-            "location": "/about/#quod-illis-ripam-tu-certeque-convertit-probat",
-            "text": "Melior inprudens Calydona  nobis , Lucifer communia.  Cura\nanimis ferum  te  premebat unda \nvestigia, truncum, viribus praeferret o. Unius limes et culpa illa sustinet,\nvelocius meo et tela, pro dum labore, patriam, aut?   Fecunda ecquis pro semper  Mutatis vestigia undas  Qui mutavit annis  Prohibente fusus  Vultus porta   Horrent fas euntem abest. Letum erat pater, avum  animum ego : lectum quoque\ningenti et Aulide  per . Huc est ait tradere videres praebebat spirantis undas\nex Dianae omnia praelatum isto.",
-            "title": "Quod illis ripam tu certeque convertit probat"
+            "location": "/about/license/#license",
+            "text": "\"Request Yo Racks\" is a collection of open source projects licensed under  The MIT License .",
+            "title": "License"
         }
     ]
 }
