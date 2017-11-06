@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - attach_workspace:
-        at: ryr-docs/
+          at: ryr-docs/
 
       - add_ssh_keys:
           fingerprints:
