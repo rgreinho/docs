@@ -44,9 +44,9 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - checkout
       - attach_workspace:
           at: ryr-docs/
-      - checkout
 
       - add_ssh_keys:
           fingerprints:
