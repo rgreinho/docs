@@ -30,12 +30,6 @@ jobs:
           command: |
             make build
 
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - Makefile
-            - venv
-            - ryr-docs/site/*
 
   publish:
     docker:
@@ -45,8 +39,10 @@ jobs:
 
     steps:
       - checkout
-      - attach_workspace:
-          at: ./
+      - restore_cache:
+          keys:
+          - deps-{{ checksum "requirements/local.txt" }}
+          - deps-
 
       - add_ssh_keys:
           fingerprints:
