@@ -33,6 +33,7 @@ jobs:
       - persist_to_workspace:
           root: ./
           paths:
+            - Makefile
             - venv
             - ryr-docs/site/*
 
