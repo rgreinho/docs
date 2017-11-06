@@ -13,6 +13,9 @@ help: # Display help
 build: venv ## Build the documentatrion site
 	. venv/bin/activate && cd ryr-docs && mkdocs build -v -s
 
+clean: ## Remove unwanted files in project (!DESTRUCTIVE!)
+	cd $(TOPDIR); git clean -ffdx
+
 setup: venv ## Setup the full environment (default)
 
 publish: venv ## Publish the site to github pages
@@ -24,4 +27,4 @@ venv/bin/activate: requirements/local.txt
 	test -d venv || python3 -m venv venv
 	. venv/bin/activate && pip install -U pip setuptools && pip install -r requirements/local.txt
 
-.PHONY: setup venv
+.PHONY: build clean setup publish
