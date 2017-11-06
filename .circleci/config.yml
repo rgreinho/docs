@@ -28,14 +28,13 @@ jobs:
       - run:
           name: Build the site.
           command: |
-            . venv/bin/activate
             make build
 
       - persist_to_workspace:
-          root: ryr-docs/
+          root: ./
           paths:
-            - target/application.jar
-            - site/*
+            - venv
+            - ryr-docs/site/*
 
   publish:
     docker:
@@ -54,8 +53,7 @@ jobs:
       - run:
           name: Deploy the site.
           command: |
-            . venv/bin/activate
-            cd ryr-docs && mkdocs gh-deploy -v --clean
+            make publish
 
 workflows:
   version: 2

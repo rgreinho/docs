@@ -11,9 +11,12 @@ help: # Display help
 		}' $(MAKEFILE_LIST) | sort
 
 build: venv ## Build the documentatrion site
-	cd ryr-docs && mkdocs build -v -s
+	. venv/bin/activate && cd ryr-docs && mkdocs build -v -s
 
 setup: venv ## Setup the full environment (default)
+
+publish: venv ## Publish the site to github pages
+	. venv/bin/activate && cd ryr-docs && mkdocs gh-deploy -v --clean
 
 venv: venv/bin/activate ## Setup local venv
 
