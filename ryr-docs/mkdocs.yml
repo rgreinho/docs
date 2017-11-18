@@ -1,7 +1,8 @@
 site_name: Request Yo Racks Documentation
 pages:
   - Home: index.md
-  - Developer Zone:
-    - 'Technical Overview': 'developer-zone/technical-overview.md'
+  - Contributor Zone:
+    - Goals & Strategy: contributor-zone/goals-strategy.md
+    - 'Technical Overview': 'contributor-zone/technical-overview.md'
   - About:
     - 'License': 'about/license.md'
