@@ -11,32 +11,42 @@
             "title": "Request Yo Racks (Now)!"
         },
         {
-            "location": "/developer-zone/technical-overview/",
+            "location": "/contributor-zone/goals-strategy/",
+            "text": "Goals and strategy",
+            "title": "Goals & Strategy"
+        },
+        {
+            "location": "/contributor-zone/goals-strategy/#goals-and-strategy",
+            "text": "",
+            "title": "Goals and strategy"
+        },
+        {
+            "location": "/contributor-zone/technical-overview/",
             "text": "Technical overview\n\n\nRequest Yo Racks is a collection of open source projects hosted on Github.\n\n\nKey principles\n\n\n\n\nEverything must be automated.\n\n\nEverything must be documented.\n\n\nEverything must be containerized.\n\n\n\n\nAPI\n\n\nThe API is done in \nPython\n. We currently use \nDjango REST Framework\n (DRF), but will possibly switch to \nAPIStar\n in a near future.\n\n\nThe tasks will be handled by \nCelery\n to process them asynchronously.\n\n\nALL the documentation is written in \nreStructuredText\n and generated with \nSphinx\n\n\nRepository: \nAPI\n\n\nWeb\n\n\nThe frontend is a \nProgressive Web Application (PWA)\n. The \nPolymer\n library offers the ability to quickly create a PWA implementing the \nPRPL pattern\n, and to build\n web components\n.\n\n\nRepository: \nWeb\n\n\nInfrastructure\n\n\nThe projects are fully containerized using \nDocker\n and will be deployed on a \nKubernetes\n cluster, most likely on the \nGCP\n.",
             "title": "Technical Overview"
         },
         {
-            "location": "/developer-zone/technical-overview/#technical-overview",
+            "location": "/contributor-zone/technical-overview/#technical-overview",
             "text": "Request Yo Racks is a collection of open source projects hosted on Github.",
             "title": "Technical overview"
         },
         {
-            "location": "/developer-zone/technical-overview/#key-principles",
+            "location": "/contributor-zone/technical-overview/#key-principles",
             "text": "Everything must be automated.  Everything must be documented.  Everything must be containerized.",
             "title": "Key principles"
         },
         {
-            "location": "/developer-zone/technical-overview/#api",
+            "location": "/contributor-zone/technical-overview/#api",
             "text": "The API is done in  Python . We currently use  Django REST Framework  (DRF), but will possibly switch to  APIStar  in a near future.  The tasks will be handled by  Celery  to process them asynchronously.  ALL the documentation is written in  reStructuredText  and generated with  Sphinx  Repository:  API",
             "title": "API"
         },
         {
-            "location": "/developer-zone/technical-overview/#web",
+            "location": "/contributor-zone/technical-overview/#web",
             "text": "The frontend is a  Progressive Web Application (PWA) . The  Polymer  library offers the ability to quickly create a PWA implementing the  PRPL pattern , and to build  web components .  Repository:  Web",
             "title": "Web"
         },
         {
-            "location": "/developer-zone/technical-overview/#infrastructure",
+            "location": "/contributor-zone/technical-overview/#infrastructure",
             "text": "The projects are fully containerized using  Docker  and will be deployed on a  Kubernetes  cluster, most likely on the  GCP .",
             "title": "Infrastructure"
         },
