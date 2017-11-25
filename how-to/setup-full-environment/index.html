@@ -7,21 +7,21 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>Request Yo Racks Documentation</title>
-        <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="/css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/highlight.css">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Setup full environment - Request Yo Racks Documentation</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/jquery-1.10.2.min.js"></script>
-        <script src="/js/bootstrap-3.0.3.min.js"></script>
-        <script src="/js/highlight.pack.js"></script> 
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
     </head>
 
     <body>
@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Request Yo Racks Documentation</a>
+            <a class="navbar-brand" href="../..">Request Yo Racks Documentation</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -46,27 +46,27 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href="/">Home</a>
+                        <a href="../..">Home</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributor Zone <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="/contributor-zone/goals-strategy/">Goals & Strategy</a>
+    <a href="../../contributor-zone/goals-strategy/">Goals & Strategy</a>
 </li>
                             
 <li >
-    <a href="/contributor-zone/technical-overview/">Technical Overview</a>
+    <a href="../../contributor-zone/technical-overview/">Technical Overview</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">How-to <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="/how-to/setup-full-environment/">Setup full environment</a>
+<li class="active">
+    <a href="./">Setup full environment</a>
 </li>
                         </ul>
                     </li>
@@ -75,7 +75,7 @@
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="/about/license/">License</a>
+    <a href="../../about/license/">License</a>
 </li>
                         </ul>
                     </li>
@@ -87,31 +87,82 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
+                    <li >
+                        <a rel="next" href="../../contributor-zone/technical-overview/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../about/license/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
             </ul>
         </div>
     </div>
 </div>
 
         <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#how-to-setup-a-full-environment">How to setup a full environment?</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
+<h1 id="how-to-setup-a-full-environment">How to setup a full environment?</h1>
+<p>First, you will need a <a href="https://www.yelp.com/signup">Yelp</a> and <a href="https://accounts.google.com/SignUp">Google</a> account, as well as developer keys for some of their services.</p>
+<p>Create a developer Key for:</p>
+<ul>
+<li><a href="https://www.yelp.com/developers/v3/manage_app">Yelp Fusion API</a></li>
+<li><a href="https://developers.google.com/places/web-service">Google Places API</a></li>
+<li><a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google Geocoding API</a></li>
+</ul>
+<p>Once your accounts are setup, store your developer keys in a global environment file:</p>
+<pre><code>RYR_GLOBAL_CONFIG_DIR=&quot;${HOME}/.config/ryr&quot;
+mkdir -p &quot;${RYR_GLOBAL_CONFIG_DIR}&quot;
+cat &lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;
+export RYR_COLLECTOR_YELP_CLIENT_ID=&lt;redacted&gt;
+export RYR_COLLECTOR_YELP_CLIENT_SECRET=&lt;redacted&gt;
+export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=&lt;redacted&gt;
+export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=&lt;redacted&gt;
+EOF
+chmod 400 &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;
+</code></pre>
 
+<p>Then create a folder which will contain the RYR projects:</p>
+<pre><code>RYR_PROJECT_DIR=&quot;${HOME}/projects/request-yo-racks&quot;
+mkdir -p &quot;${RYR_PROJECT_DIR}&quot;
+cd &quot;${RYR_PROJECT_DIR}&quot;
+git clone git@github.com:request-yo-racks/api.git
+git clone git@github.com:request-yo-racks/docs.git
+git clone git@github.com:request-yo-racks/infra.git
+git clone git@github.com:request-yo-racks/web.git
+</code></pre>
 
+<p>Each project can be simply setup with the <code>make</code> command, and a local developer environment is provided via <code>docker-compose</code>.</p>
+<p>You can start the API service and the frontend like this:</p>
+<pre><code>source &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;
+cd &quot;${RYR_PROJECT_DIR}/api&quot;
+make
+docker-compose up -d
+cd &quot;${RYR_PROJECT_DIR}/web&quot;
+make
+docker-compose up -d
+</code></pre>
+
+<p>All the services are running in the background.</p>
+<p>Now open Chrome and go to http://localhost:38888.</p></div>
         </div>
 
         <footer class="col-md-12">
             <hr>
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script>var base_url = '';</script>
-        <script src="/js/base.js"></script>
-        <script src="/search/require.js"></script>
-        <script src="/search/search.js"></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">

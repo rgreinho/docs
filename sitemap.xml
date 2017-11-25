@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,23 @@
         
     <url>
      <loc>/contributor-zone/goals-strategy/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/contributor-zone/technical-overview/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/how-to/setup-full-environment/</loc>
+     <lastmod>2017-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,7 +39,7 @@
         
     <url>
      <loc>/about/license/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
