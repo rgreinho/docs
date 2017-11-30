@@ -8,3 +8,16 @@ pages:
     - Setup full environment: 'how-to/setup-full-environment.md'
   - About:
     - 'License': 'about/license.md'
+theme:
+  name: material
+  palette:
+    primary: green
+    accent: lime
+  logo:
+    icon: directions_bike
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true

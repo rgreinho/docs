@@ -10,7 +10,7 @@ Create a developer Key for:
 
 
 Once your accounts are setup, store your developer keys in a global environment file:
-```
+``` bash
 RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
@@ -23,20 +23,19 @@ chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```
 
 Then create a folder which will contain the RYR projects:
-```
+``` bash
 RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
-git clone git@github.com:request-yo-racks/api.git
-git clone git@github.com:request-yo-racks/docs.git
-git clone git@github.com:request-yo-racks/infra.git
-git clone git@github.com:request-yo-racks/web.git
+for project in api docs infra web; do
+  git clone git@github.com:request-yo-racks/${project}.git
+done
 ```
 
 Each project can be simply setup with the `make` command, and a local developer environment is provided via `docker-compose`.
 
 You can start the API service and the frontend like this:
-```
+``` bash
 source "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 cd "${RYR_PROJECT_DIR}/api"
 make
