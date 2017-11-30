@@ -1,6 +1,13 @@
 # How to setup a full environment?
 
-First, you will need a [Yelp](https://www.yelp.com/signup) and [Google](https://accounts.google.com/SignUp) account, as well as developer keys for some of their services.
+## Accounts
+
+First, you will need:
+
+* A [Yelp](https://www.yelp.com/signup) account
+* A [Google](https://accounts.google.com/SignUp) account
+
+## Developer keys
 
 Create a developer Key for:
 
@@ -8,6 +15,7 @@ Create a developer Key for:
 * [Google Places API](https://developers.google.com/places/web-service)
 * [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 
+## Environment variables
 
 Once your accounts are setup, store your developer keys in a global environment file:
 ``` bash
@@ -22,7 +30,9 @@ EOF
 chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```
 
-Then create a folder which will contain the RYR projects:
+## Clone the projects
+
+Create a folder which will contain the RYR projects:
 ``` bash
 RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 mkdir -p "${RYR_PROJECT_DIR}"
@@ -33,6 +43,8 @@ done
 ```
 
 Each project can be simply setup with the `make` command, and a local developer environment is provided via `docker-compose`.
+
+## Start the services
 
 You can start the API service and the frontend like this:
 ``` bash

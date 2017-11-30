@@ -4,8 +4,8 @@ pages:
   - Contributor Zone:
     - Goals & Strategy: contributor-zone/goals-strategy.md
     - Technical Overview: 'contributor-zone/technical-overview.md'
-  - How-to:
-    - Setup full environment: 'how-to/setup-full-environment.md'
+  - Guides:
+    - Setup full environment: 'guides/setup-full-environment.md'
   - About:
     - 'License': 'about/license.md'
 theme:

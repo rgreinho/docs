@@ -16,13 +16,13 @@ The tasks will be handled by [Celery](http://docs.celeryproject.org/en/latest/in
 
 ALL the documentation is written in [reStructuredText](ttp://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html) and generated with [Sphinx](http://www.sphinx-doc.org/en/stable/)
 
-Repository: [API](https://github.com/rgreinho/request-yo-racks-api)
+Repository: [API](https://github.com/request-yo-racks/api)
 
 ## Web
 
 The frontend is a [Progressive Web Application (PWA)](https://developers.google.com/web/progressive-web-apps/). The [Polymer](https://www.polymer-project.org/) library offers the ability to quickly create a PWA implementing the [PRPL pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/), and to build[ web components](https://www.webcomponents.org/).
 
-Repository: [Web](https://github.com/rgreinho/request-yo-racks-web)
+Repository: [Web](https://github.com/request-yo-racks/web)
 
 ## Infrastructure
 
