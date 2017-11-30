@@ -51,14 +51,39 @@
             "title": "Infrastructure"
         },
         {
-            "location": "/how-to/setup-full-environment/",
-            "text": "How to setup a full environment?\n\u00b6\n\n\nFirst, you will need a \nYelp\n and \nGoogle\n account, as well as developer keys for some of their services.\n\n\nCreate a developer Key for:\n\n\n\n\nYelp Fusion API\n\n\nGoogle Places API\n\n\nGoogle Geocoding API\n\n\n\n\nOnce your accounts are setup, store your developer keys in a global environment file:\n\n\nRYR_GLOBAL_CONFIG_DIR\n=\n\"\n${\nHOME\n}\n/.config/ryr\"\n\nmkdir -p \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n\"\n\ncat \n<< EOF > \"${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh\"\n\n\nexport RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>\n\n\nexport RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>\n\n\nexport RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>\n\n\nexport RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>\n\n\nEOF\n\nchmod \n400\n \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n/ryr-env.sh\"\n\n\n\n\n\n\nThen create a folder which will contain the RYR projects:\n\n\nRYR_PROJECT_DIR\n=\n\"\n${\nHOME\n}\n/projects/request-yo-racks\"\n\nmkdir -p \n\"\n${\nRYR_PROJECT_DIR\n}\n\"\n\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n\"\n\n\nfor\n project in api docs infra web\n;\n \ndo\n\n  git clone git@github.com:request-yo-racks/\n${\nproject\n}\n.git\n\ndone\n\n\n\n\n\n\nEach project can be simply setup with the \nmake\n command, and a local developer environment is provided via \ndocker-compose\n.\n\n\nYou can start the API service and the frontend like this:\n\n\nsource\n \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n/ryr-env.sh\"\n\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n/api\"\n\nmake\ndocker-compose up -d\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n/web\"\n\nmake\ndocker-compose up -d\n\n\n\n\n\nAll the services are running in the background.\n\n\nNow open Chrome and go to http://localhost:38888.",
+            "location": "/guides/setup-full-environment/",
+            "text": "How to setup a full environment?\n\u00b6\n\n\nAccounts\n\u00b6\n\n\nFirst, you will need:\n\n\n\n\nA \nYelp\n account\n\n\nA \nGoogle\n account\n\n\n\n\nDeveloper keys\n\u00b6\n\n\nCreate a developer Key for:\n\n\n\n\nYelp Fusion API\n\n\nGoogle Places API\n\n\nGoogle Geocoding API\n\n\n\n\nEnvironment variables\n\u00b6\n\n\nOnce your accounts are setup, store your developer keys in a global environment file:\n\n\nRYR_GLOBAL_CONFIG_DIR\n=\n\"\n${\nHOME\n}\n/.config/ryr\"\n\nmkdir -p \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n\"\n\ncat \n<< EOF > \"${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh\"\n\n\nexport RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>\n\n\nexport RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>\n\n\nexport RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>\n\n\nexport RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>\n\n\nEOF\n\nchmod \n400\n \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n/ryr-env.sh\"\n\n\n\n\n\n\nClone the projects\n\u00b6\n\n\nCreate a folder which will contain the RYR projects:\n\n\nRYR_PROJECT_DIR\n=\n\"\n${\nHOME\n}\n/projects/request-yo-racks\"\n\nmkdir -p \n\"\n${\nRYR_PROJECT_DIR\n}\n\"\n\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n\"\n\n\nfor\n project in api docs infra web\n;\n \ndo\n\n  git clone git@github.com:request-yo-racks/\n${\nproject\n}\n.git\n\ndone\n\n\n\n\n\n\nEach project can be simply setup with the \nmake\n command, and a local developer environment is provided via \ndocker-compose\n.\n\n\nStart the services\n\u00b6\n\n\nYou can start the API service and the frontend like this:\n\n\nsource\n \n\"\n${\nRYR_GLOBAL_CONFIG_DIR\n}\n/ryr-env.sh\"\n\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n/api\"\n\nmake\ndocker-compose up -d\n\ncd\n \n\"\n${\nRYR_PROJECT_DIR\n}\n/web\"\n\nmake\ndocker-compose up -d\n\n\n\n\n\nAll the services are running in the background.\n\n\nNow open Chrome and go to http://localhost:38888.",
             "title": "Setup full environment"
         },
         {
-            "location": "/how-to/setup-full-environment/#how-to-setup-a-full-environment",
-            "text": "First, you will need a  Yelp  and  Google  account, as well as developer keys for some of their services.  Create a developer Key for:   Yelp Fusion API  Google Places API  Google Geocoding API   Once your accounts are setup, store your developer keys in a global environment file:  RYR_GLOBAL_CONFIG_DIR = \" ${ HOME } /.config/ryr\" \nmkdir -p  \" ${ RYR_GLOBAL_CONFIG_DIR } \" \ncat  << EOF > \"${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh\"  export RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>  export RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>  export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>  export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>  EOF \nchmod  400   \" ${ RYR_GLOBAL_CONFIG_DIR } /ryr-env.sh\"   Then create a folder which will contain the RYR projects:  RYR_PROJECT_DIR = \" ${ HOME } /projects/request-yo-racks\" \nmkdir -p  \" ${ RYR_PROJECT_DIR } \"  cd   \" ${ RYR_PROJECT_DIR } \"  for  project in api docs infra web ;   do \n  git clone git@github.com:request-yo-racks/ ${ project } .git done   Each project can be simply setup with the  make  command, and a local developer environment is provided via  docker-compose .  You can start the API service and the frontend like this:  source   \" ${ RYR_GLOBAL_CONFIG_DIR } /ryr-env.sh\"  cd   \" ${ RYR_PROJECT_DIR } /api\" \nmake\ndocker-compose up -d cd   \" ${ RYR_PROJECT_DIR } /web\" \nmake\ndocker-compose up -d  All the services are running in the background.  Now open Chrome and go to http://localhost:38888.",
+            "location": "/guides/setup-full-environment/#how-to-setup-a-full-environment",
+            "text": "",
             "title": "How to setup a full environment?"
+        },
+        {
+            "location": "/guides/setup-full-environment/#accounts",
+            "text": "First, you will need:   A  Yelp  account  A  Google  account",
+            "title": "Accounts"
+        },
+        {
+            "location": "/guides/setup-full-environment/#developer-keys",
+            "text": "Create a developer Key for:   Yelp Fusion API  Google Places API  Google Geocoding API",
+            "title": "Developer keys"
+        },
+        {
+            "location": "/guides/setup-full-environment/#environment-variables",
+            "text": "Once your accounts are setup, store your developer keys in a global environment file:  RYR_GLOBAL_CONFIG_DIR = \" ${ HOME } /.config/ryr\" \nmkdir -p  \" ${ RYR_GLOBAL_CONFIG_DIR } \" \ncat  << EOF > \"${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh\"  export RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>  export RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>  export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>  export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>  EOF \nchmod  400   \" ${ RYR_GLOBAL_CONFIG_DIR } /ryr-env.sh\"",
+            "title": "Environment variables"
+        },
+        {
+            "location": "/guides/setup-full-environment/#clone-the-projects",
+            "text": "Create a folder which will contain the RYR projects:  RYR_PROJECT_DIR = \" ${ HOME } /projects/request-yo-racks\" \nmkdir -p  \" ${ RYR_PROJECT_DIR } \"  cd   \" ${ RYR_PROJECT_DIR } \"  for  project in api docs infra web ;   do \n  git clone git@github.com:request-yo-racks/ ${ project } .git done   Each project can be simply setup with the  make  command, and a local developer environment is provided via  docker-compose .",
+            "title": "Clone the projects"
+        },
+        {
+            "location": "/guides/setup-full-environment/#start-the-services",
+            "text": "You can start the API service and the frontend like this:  source   \" ${ RYR_GLOBAL_CONFIG_DIR } /ryr-env.sh\"  cd   \" ${ RYR_PROJECT_DIR } /api\" \nmake\ndocker-compose up -d cd   \" ${ RYR_PROJECT_DIR } /web\" \nmake\ndocker-compose up -d  All the services are running in the background.  Now open Chrome and go to http://localhost:38888.",
+            "title": "Start the services"
         },
         {
             "location": "/about/license/",
