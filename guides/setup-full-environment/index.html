@@ -301,6 +301,33 @@
     Start the services
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-services" title="External services" class="md-nav__link">
+    External services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web" title="Web" class="md-nav__link">
+    Web
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -406,6 +433,33 @@
     Start the services
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-services" title="External services" class="md-nav__link">
+    External services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web" title="Web" class="md-nav__link">
+    Web
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -438,7 +492,7 @@
 <li><a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google Geocoding API</a></li>
 </ul>
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
-<p>Once your accounts are setup, store your developer keys in a global environment file:</p>
+<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.</p>
 <div class="codehilite"><pre><span></span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.config/ryr&quot;</span>
 mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;</span>
@@ -451,32 +505,78 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 </pre></div>
 
 
+<p>For creating Kubernetes secrets, you need to create one file per key in the
+<code>~/.config/ryr/kubernetes-secrets</code> folder:</p>
+<div class="codehilite"><pre><span></span>mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/kubernetes-secrets&quot;</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/kubernetes-secrets&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_YELP_CLIENT_ID
+<span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_YELP_CLIENT_SECRET
+<span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
+<span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
+</pre></div>
+
+
+<p>At the end of the process, your <code>~/.config/ryr</code> folder should look like this:</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>~/.config/ryr<span class="o">]</span> $ tree -L <span class="m">2</span>
+.
+├── kubernetes-secrets
+│   ├── RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
+│   ├── RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
+│   ├── RYR_COLLECTOR_YELP_CLIENT_ID
+│   ├── RYR_COLLECTOR_YELP_CLIENT_SECRET
+│   └── RYR_WEB_GOOGLE_MAPS_API_KEY
+└── ryr-env.sh
+</pre></div>
+
+
 <h2 id="clone-the-projects">Clone the projects<a class="headerlink" href="#clone-the-projects" title="Permanent link">&para;</a></h2>
-<p>Create a folder which will contain the RYR projects:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Minikube is using shared folders between the host and virtualbox and expects to find the source code of the projects in a sub-directory of the home folder of your user.</p>
+</div>
+<p>Create a folder which will contain the RYR projects (the <code>charts</code> and <code>docs</code> projects are optional as
+they are no required to run the projects.):</p>
 <div class="codehilite"><pre><span></span><span class="nv">RYR_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/projects/request-yo-racks&quot;</span>
 mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">for</span> project in api docs infra web<span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> project in api infra web<span class="p">;</span> <span class="k">do</span>
   git clone git@github.com:request-yo-racks/<span class="si">${</span><span class="nv">project</span><span class="si">}</span>.git
 <span class="k">done</span>
 </pre></div>
 
 
-<p>Each project can be simply setup with the <code>make</code> command, and a local developer environment is provided via <code>docker-compose</code>.</p>
+<p>Each project is provided with a <code>Makefile</code> and can be simply setup with the <code>make</code> command.</p>
 <h2 id="start-the-services">Start the services<a class="headerlink" href="#start-the-services" title="Permanent link">&para;</a></h2>
-<p>You can start the API service and the frontend like this:</p>
-<div class="codehilite"><pre><span></span><span class="nb">source</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/ryr-env.sh&quot;</span>
-<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/api&quot;</span>
-make
-docker-compose up -d
-<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
-make
-docker-compose up -d
+<h3 id="external-services">External services<a class="headerlink" href="#external-services" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/infra/kubernetes&quot;</span>
+make provision
+<span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
+make configure
 </pre></div>
 
 
-<p>All the services are running in the background.</p>
-<p>Now open Chrome and go to http://localhost:38888.</p>
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/api&quot;</span>
+make setup deploy-minikube
+</pre></div>
+
+
+<p>Test your setup:</p>
+<div class="codehilite"><pre><span></span>curl -i http://api.192.168.99.100.nip.io/places/
+</pre></div>
+
+
+<h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
+make setup deploy-minikube
+</pre></div>
+
+
+<p>Check the web application:</p>
+<div class="codehilite"><pre><span></span>open http://www.192.168.99.100.nip.io/
+</pre></div>
                 
                   
                 
