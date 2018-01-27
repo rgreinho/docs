@@ -92,13 +92,29 @@ cd "${RYR_PROJECT_DIR}/api"
 make setup deploy-minikube
 ```
 
-Test your setup:
+Test your setup from a terminal:
 ```bash
 curl -i http://api.192.168.99.100.nip.io/places/
+```
+Or browse it:
+```bash
+open http://api.192.168.99.100.nip.io/places/
 ```
 
 ### Web
 
+For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
+[Maps JavaScript API ](https://developers.google.com/maps/documentation/javascript/get-api-key)
+if you need more information.
+
+First create a `config.js` file to store the API key:
+```bash
+cat << EOF > "${RYR_PROJECT_DIR}/web/src/config.js"
+var config = {"GOOGLE_WEB_MAPS_API_KEY": "<redacted>"};
+EOF
+```
+
+Then deploy it:
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
