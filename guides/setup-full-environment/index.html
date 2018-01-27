@@ -562,12 +562,28 @@ make setup deploy-minikube
 </pre></div>
 
 
-<p>Test your setup:</p>
+<p>Test your setup from a terminal:</p>
 <div class="codehilite"><pre><span></span>curl -i http://api.192.168.99.100.nip.io/places/
 </pre></div>
 
 
+<p>Or browse it:</p>
+<div class="codehilite"><pre><span></span>open http://api.192.168.99.100.nip.io/places/
+</pre></div>
+
+
 <h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
+<p>For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
+<a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Maps JavaScript API </a>
+if you need more information.</p>
+<p>First create a <code>config.js</code> file to store the API key:</p>
+<div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_PROJECT_DIR}/web/src/config.js&quot;</span>
+<span class="s">var config = {&quot;GOOGLE_WEB_MAPS_API_KEY&quot;: &quot;&lt;redacted&gt;&quot;};</span>
+<span class="s">EOF</span>
+</pre></div>
+
+
+<p>Then deploy it:</p>
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
 make setup deploy-minikube
