@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-27</lastmod>
+     <lastmod>2018-01-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,14 +12,20 @@
     
         
     <url>
+     <loc>/contributor-zone/adw-2017/</loc>
+     <lastmod>2018-01-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/contributor-zone/goals-strategy/</loc>
-     <lastmod>2018-01-27</lastmod>
+     <lastmod>2018-01-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/contributor-zone/technical-overview/</loc>
-     <lastmod>2018-01-27</lastmod>
+     <lastmod>2018-01-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,7 +35,7 @@
         
     <url>
      <loc>/guides/setup-full-environment/</loc>
-     <lastmod>2018-01-27</lastmod>
+     <lastmod>2018-01-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -39,7 +45,7 @@
         
     <url>
      <loc>/about/license/</loc>
-     <lastmod>2018-01-27</lastmod>
+     <lastmod>2018-01-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
