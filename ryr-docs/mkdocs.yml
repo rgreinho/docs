@@ -2,6 +2,7 @@ site_name: Request Yo Racks Documentation
 pages:
   - Home: index.md
   - Contributor Zone:
+    - Austin Design Week 2017: 'contributor-zone/adw-2017.md'
     - Goals & Strategy: contributor-zone/goals-strategy.md
     - Technical Overview: 'contributor-zone/technical-overview.md'
   - Guides:
