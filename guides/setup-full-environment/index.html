@@ -136,6 +136,67 @@
         
       
       
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../contributor-zone/adw-2017/" title="Contributor Zone" class="md-tabs__link">
+          Contributor Zone
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Guides" class="md-tabs__link md-tabs__link--active">
+          Guides
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../about/license/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -281,6 +342,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accounts" title="Accounts" class="md-nav__link">
     Accounts
   </a>
@@ -413,6 +481,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accounts" title="Accounts" class="md-nav__link">
     Accounts
   </a>
@@ -490,6 +565,31 @@
                 
                 
                 <h1 id="how-to-setup-a-full-environment">How to setup a full environment?<a class="headerlink" href="#how-to-setup-a-full-environment" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A <a href="../github.com">Github</a> account<ul>
+<li>With an <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">SSH key</a></li>
+<li>Added to your <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Github account</a></li>
+</ul>
+</li>
+<li>Install <a href="https://brew.sh/">Homebrew</a> if you are using OSX</li>
+<li>A terminal<ul>
+<li>The default one is fine, but <a href="https://iterm2.com/">iterm2</a> is better -- <code>brew cask install iterm2</code></li>
+</ul>
+</li>
+<li>Install <a href="https://www.virtualbox.org/">Virtualbox</a><ul>
+<li><code>brew cask install virtualbox</code> should do the trick on OSX</li>
+</ul>
+</li>
+<li>Install <a href="https://docs.docker.com/docker-for-mac/install/">Docker</a><ul>
+<li>Test your installation with <code>docker run --rm --name hello-world hello-world</code></li>
+</ul>
+</li>
+<li>Install <a href="https://nodejs.org/en/">NodeJS</a><ul>
+<li><code>brew install node</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="accounts">Accounts<a class="headerlink" href="#accounts" title="Permanent link">&para;</a></h2>
 <p>First, you will need:</p>
 <ul>
@@ -548,7 +648,7 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 </div>
 <p>Create a folder which will contain the RYR projects (the <code>charts</code> and <code>docs</code> projects are optional as
 they are no required to run the projects.):</p>
-<div class="codehilite"><pre><span></span><span class="nv">RYR_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/projects/request-yo-racks&quot;</span>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RYR_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/projects/request-yo-racks&quot;</span>
 mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">for</span> project in api infra web<span class="p">;</span> <span class="k">do</span>
