@@ -16,6 +16,8 @@ theme:
     accent: lime
   logo:
     icon: directions_bike
+  feature:
+    tabs: true
 
 markdown_extensions:
   - admonition

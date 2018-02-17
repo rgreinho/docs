@@ -1,5 +1,20 @@
 # How to setup a full environment?
 
+## Prerequisites
+
+* A [Github](github.com) account
+    * With an [SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+    * Added to your [Github account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+* Install [Homebrew](https://brew.sh/) if you are using OSX
+* A terminal
+    * The default one is fine, but [iterm2](https://iterm2.com/) is better -- `brew cask install iterm2`
+* Install [Virtualbox](https://www.virtualbox.org/)
+    * `brew cask install virtualbox` should do the trick on OSX
+* Install [Docker](https://docs.docker.com/docker-for-mac/install/)
+    * Test your installation with `docker run --rm --name hello-world hello-world`
+* Install [NodeJS](https://nodejs.org/en/)
+    * `brew install node`
+
 ## Accounts
 
 First, you will need:
@@ -63,7 +78,7 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 Create a folder which will contain the RYR projects (the `charts` and `docs` projects are optional as
 they are no required to run the projects.):
 ``` bash
-RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
+export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api infra web; do
