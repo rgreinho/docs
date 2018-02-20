@@ -2,18 +2,27 @@
 
 ## Prerequisites
 
+!!! tips
+    A script in the
+    [infra](https://github.com/request-yo-racks/infra/tree/master/bootstrap/bootstrap.sh)
+    repository can help you install the prerequisites automatically (**OS X only**).
+
+    To start the procedure, simply run the following command:
+    ```bash
+    bash <(curl -fsSL https://raw.githubusercontent.com/request-yo-racks/infra/master/bootstrap/bootstrap.sh)
+    ```
+
+    At the end of the procedure, your SSH key will be automatically copied to your clipboard and
+    a web page will pop up with the instructions to help you add it to Github.
+
 * A [Github](github.com) account
     * With an [SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
     * Added to your [Github account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
-* Install [Homebrew](https://brew.sh/) if you are using OSX
-* A terminal
-    * The default one is fine, but [iterm2](https://iterm2.com/) is better -- `brew cask install iterm2`
-* Install [Virtualbox](https://www.virtualbox.org/)
-    * `brew cask install virtualbox` should do the trick on OSX
-* Install [Docker](https://docs.docker.com/docker-for-mac/install/)
-    * Test your installation with `docker run --rm --name hello-world hello-world`
-* Install [NodeJS](https://nodejs.org/en/)
-    * `brew install node`
+* [Homebrew](https://brew.sh/) if you are using OSX
+* A terminal. The default one is fine, but [iterm2](https://iterm2.com/) is better
+* [Virtualbox](https://www.virtualbox.org/)
+* [Docker](https://docs.docker.com/docker-for-mac/install/)
+* [NodeJS](https://nodejs.org/en/)
 
 ## Accounts
 
