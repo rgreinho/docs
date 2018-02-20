@@ -566,29 +566,28 @@
                 
                 <h1 id="how-to-setup-a-full-environment">How to setup a full environment?<a class="headerlink" href="#how-to-setup-a-full-environment" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
+<p>A script in the
+<a href="https://github.com/request-yo-racks/infra/tree/master/bootstrap/bootstrap.sh">infra</a>
+repository can help you install the prerequisites automatically (<strong>OS X only</strong>).</p>
+<p>To start the procedure, simply run the following command:
+<div class="codehilite"><pre><span></span>bash &lt;<span class="o">(</span>curl -fsSL https://raw.githubusercontent.com/request-yo-racks/infra/master/bootstrap/bootstrap.sh<span class="o">)</span>
+</pre></div></p>
+<p>At the end of the procedure, your SSH key will be automatically copied to your clipboard and
+a web page will pop up with the instructions to help you add it to Github.</p>
+</div>
 <ul>
 <li>A <a href="../github.com">Github</a> account<ul>
 <li>With an <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">SSH key</a></li>
 <li>Added to your <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Github account</a></li>
 </ul>
 </li>
-<li>Install <a href="https://brew.sh/">Homebrew</a> if you are using OSX</li>
-<li>A terminal<ul>
-<li>The default one is fine, but <a href="https://iterm2.com/">iterm2</a> is better -- <code>brew cask install iterm2</code></li>
-</ul>
-</li>
-<li>Install <a href="https://www.virtualbox.org/">Virtualbox</a><ul>
-<li><code>brew cask install virtualbox</code> should do the trick on OSX</li>
-</ul>
-</li>
-<li>Install <a href="https://docs.docker.com/docker-for-mac/install/">Docker</a><ul>
-<li>Test your installation with <code>docker run --rm --name hello-world hello-world</code></li>
-</ul>
-</li>
-<li>Install <a href="https://nodejs.org/en/">NodeJS</a><ul>
-<li><code>brew install node</code></li>
-</ul>
-</li>
+<li><a href="https://brew.sh/">Homebrew</a> if you are using OSX</li>
+<li>A terminal. The default one is fine, but <a href="https://iterm2.com/">iterm2</a> is better</li>
+<li><a href="https://www.virtualbox.org/">Virtualbox</a></li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/">Docker</a></li>
+<li><a href="https://nodejs.org/en/">NodeJS</a></li>
 </ul>
 <h2 id="accounts">Accounts<a class="headerlink" href="#accounts" title="Permanent link">&para;</a></h2>
 <p>First, you will need:</p>
@@ -604,7 +603,7 @@
 <li><a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google Geocoding API</a></li>
 </ul>
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
-<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.</p>
+<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.
 <div class="codehilite"><pre><span></span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.config/ryr&quot;</span>
 mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;</span>
@@ -614,9 +613,7 @@ cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&
 <span class="s">export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=&lt;redacted&gt;</span>
 <span class="s">EOF</span>
 chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/ryr-env.sh&quot;</span>
-</pre></div>
-
-
+</pre></div></p>
 <p>For creating Kubernetes secrets, you need to create one file per key in the
 <code>~/.config/ryr/kubernetes-secrets</code> folder:</p>
 <div class="codehilite"><pre><span></span>mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/kubernetes-secrets&quot;</span>
@@ -627,8 +624,7 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 <span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
 </pre></div>
 
-
-<p>At the end of the process, your <code>~/.config/ryr</code> folder should look like this:</p>
+<p>At the end of the process, your <code>~/.config/ryr</code> folder should look like this:
 <div class="codehilite"><pre><span></span><span class="o">[</span>~/.config/ryr<span class="o">]</span> $ tree -L <span class="m">2</span>
 .
 ├── kubernetes-secrets
@@ -638,25 +634,21 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 │   ├── RYR_COLLECTOR_YELP_CLIENT_SECRET
 │   └── RYR_WEB_GOOGLE_MAPS_API_KEY
 └── ryr-env.sh
-</pre></div>
-
-
+</pre></div></p>
 <h2 id="clone-the-projects">Clone the projects<a class="headerlink" href="#clone-the-projects" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Minikube is using shared folders between the host and virtualbox and expects to find the source code of the projects in a sub-directory of the home folder of your user.</p>
 </div>
 <p>Create a folder which will contain the RYR projects (the <code>charts</code> and <code>docs</code> projects are optional as
-they are no required to run the projects.):</p>
+they are no required to run the projects.):
 <div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RYR_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/projects/request-yo-racks&quot;</span>
 mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">for</span> project in api infra web<span class="p">;</span> <span class="k">do</span>
   git clone git@github.com:request-yo-racks/<span class="si">${</span><span class="nv">project</span><span class="si">}</span>.git
 <span class="k">done</span>
-</pre></div>
-
-
+</pre></div></p>
 <p>Each project is provided with a <code>Makefile</code> and can be simply setup with the <code>make</code> command.</p>
 <h2 id="start-the-services">Start the services<a class="headerlink" href="#start-the-services" title="Permanent link">&para;</a></h2>
 <h3 id="external-services">External services<a class="headerlink" href="#external-services" title="Permanent link">&para;</a></h3>
@@ -666,45 +658,35 @@ make provision
 make configure
 </pre></div>
 
-
 <h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/api&quot;</span>
 make setup deploy-minikube
 </pre></div>
 
-
-<p>Test your setup from a terminal:</p>
+<p>Test your setup from a terminal:
 <div class="codehilite"><pre><span></span>curl -i http://api.192.168.99.100.nip.io/places/
 </pre></div>
-
-
-<p>Or browse it:</p>
+Or browse it:
 <div class="codehilite"><pre><span></span>open http://api.192.168.99.100.nip.io/places/
-</pre></div>
-
-
+</pre></div></p>
 <h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
 <p>For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
 <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Maps JavaScript API </a>
 if you need more information.</p>
-<p>First create a <code>config.js</code> file to store the API key:</p>
+<p>First create a <code>config.js</code> file to store the API key:
 <div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_PROJECT_DIR}/web/src/config.js&quot;</span>
 <span class="s">var config = {&quot;GOOGLE_WEB_MAPS_API_KEY&quot;: &quot;&lt;redacted&gt;&quot;};</span>
 <span class="s">EOF</span>
-</pre></div>
-
-
-<p>Then deploy it:</p>
+</pre></div></p>
+<p>Then deploy it:
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
 make setup deploy-minikube
-</pre></div>
-
-
-<p>Check the web application:</p>
+</pre></div></p>
+<p>Check the web application:
 <div class="codehilite"><pre><span></span>open http://www.192.168.99.100.nip.io/
-</pre></div>
+</pre></div></p>
                 
                   
                 
