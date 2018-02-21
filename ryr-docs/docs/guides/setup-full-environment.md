@@ -5,7 +5,8 @@
 !!! tips
     A script in the
     [infra](https://github.com/request-yo-racks/infra/tree/master/bootstrap/bootstrap.sh)
-    repository can help you install the prerequisites automatically (**OS X only**).
+    repository can assist you to install the prerequisites software automatically and configure your Github account
+    (**OS X only**).
 
     To start the procedure, simply run the following command:
     ```bash
@@ -15,23 +16,28 @@
     At the end of the procedure, your SSH key will be automatically copied to your clipboard and
     a web page will pop up with the instructions to help you add it to Github.
 
+### Github
+
 * A [Github](github.com) account
     * With an [SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
     * Added to your [Github account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+
+### Software
+
 * [Homebrew](https://brew.sh/) if you are using OSX
 * A terminal. The default one is fine, but [iterm2](https://iterm2.com/) is better
 * [Virtualbox](https://www.virtualbox.org/)
 * [Docker](https://docs.docker.com/docker-for-mac/install/)
 * [NodeJS](https://nodejs.org/en/)
 
-## Accounts
+### Accounts
 
 First, you will need:
 
 * A [Yelp](https://www.yelp.com/signup) account
 * A [Google](https://accounts.google.com/SignUp) account
 
-## Developer keys
+### Developer keys
 
 Create a developer Key for:
 
@@ -39,7 +45,7 @@ Create a developer Key for:
 * [Google Places API](https://developers.google.com/places/web-service)
 * [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 
-## Environment variables
+### Environment variables
 
 Once your accounts are setup, store your developer keys in a global environment file. This file should be located in `~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
 ``` bash
@@ -81,13 +87,13 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 
 ## Clone the projects
 
-!!! warning
-    Minikube is using shared folders between the host and virtualbox and expects to find the source code of the projects in a sub-directory of the home folder of your user.
-
-Create a folder which will contain the RYR projects (the `charts` and `docs` projects are optional as
-they are no required to run the projects.):
-``` bash
+Configure a folder which will contain the RYR projects:
+```bash
 export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
+```
+
+Clone the projects (the `charts` and `docs` projects are optional as they are no required to run the RYR.):
+``` bash
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api infra web; do
@@ -103,9 +109,7 @@ Each project is provided with a `Makefile` and can be simply setup with the `mak
 
 ```bash
 cd "${RYR_PROJECT_DIR}/infra/kubernetes"
-make provision
-eval $(minikube docker-env)
-make configure
+make provision configure
 ```
 
 ### API
