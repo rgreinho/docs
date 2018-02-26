@@ -701,7 +701,7 @@ make provision configure
 <h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/api&quot;</span>
-make setup deploy-minikube
+make build-docker deploy-minikube
 </pre></div>
 
 <p>Test your setup from a terminal:
@@ -722,7 +722,7 @@ if you need more information.</p>
 <p>Then deploy it:
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
-make setup deploy-minikube
+make build-docker deploy-minikube
 </pre></div></p>
 <p>Check the web application:
 <div class="codehilite"><pre><span></span>open http://www.192.168.99.100.nip.io/
