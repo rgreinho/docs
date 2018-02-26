@@ -117,7 +117,7 @@ make provision configure
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/api"
-make setup deploy-minikube
+make build-docker deploy-minikube
 ```
 
 Test your setup from a terminal:
@@ -146,7 +146,7 @@ Then deploy it:
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
-make setup deploy-minikube
+make build-docker deploy-minikube
 ```
 
 Check the web application:
