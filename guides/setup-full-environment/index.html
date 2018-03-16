@@ -648,9 +648,12 @@ a web page will pop up with the instructions to help you add it to Github.</p>
 <li><a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google Geocoding API</a></li>
 </ul>
 <h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.
-<div class="codehilite"><pre><span></span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.config/ryr&quot;</span>
-mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
+<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.</p>
+<p>Export the configuration directory to an environment variable:
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.config/ryr&quot;</span>
+</pre></div></p>
+<p>Create the <code>ryr-env.sh</code> script:
+<div class="codehilite"><pre><span></span>mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;</span>
 <span class="s">export RYR_COLLECTOR_YELP_CLIENT_ID=&lt;redacted&gt;</span>
 <span class="s">export RYR_COLLECTOR_YELP_CLIENT_SECRET=&lt;redacted&gt;</span>
@@ -705,18 +708,19 @@ make build-docker deploy-minikube
 </pre></div>
 
 <p>Test your setup from a terminal:
-<div class="codehilite"><pre><span></span>curl -i http://api.192.168.99.100.nip.io/places/
+<div class="codehilite"><pre><span></span>curl -i http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
 </pre></div>
 Or browse it:
-<div class="codehilite"><pre><span></span>open http://api.192.168.99.100.nip.io/places/
+<div class="codehilite"><pre><span></span>open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
 </pre></div></p>
 <h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
 <p>For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
 <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Maps JavaScript API </a>
 if you need more information.</p>
 <p>First create a <code>config.js</code> file to store the API key:
-<div class="codehilite"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_PROJECT_DIR}/web/src/config.js&quot;</span>
-<span class="s">var config = {&quot;GOOGLE_WEB_MAPS_API_KEY&quot;: &quot;&lt;redacted&gt;&quot;};</span>
+<div class="codehilite"><pre><span></span><span class="nb">source</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/ryr-env.sh&quot;</span>
+cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_PROJECT_DIR}/web/src/config.js&quot;</span>
+<span class="s">var config = {&quot;GOOGLE_WEB_MAPS_API_KEY&quot;: &quot;${RYR_WEB_GOOGLE_MAPS_API_KEY}&quot;};</span>
 <span class="s">EOF</span>
 </pre></div></p>
 <p>Then deploy it:
