@@ -48,8 +48,14 @@ Create a developer Key for:
 ### Environment variables
 
 Once your accounts are setup, store your developer keys in a global environment file. This file should be located in `~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
+
+Export the configuration directory to an environment variable:
+```bash
+export RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
+```
+
+Create the `ryr-env.sh` script:
 ``` bash
-RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 export RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>
@@ -122,11 +128,11 @@ make build-docker deploy-minikube
 
 Test your setup from a terminal:
 ```bash
-curl -i http://api.192.168.99.100.nip.io/places/
+curl -i http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
 ```
 Or browse it:
 ```bash
-open http://api.192.168.99.100.nip.io/places/
+open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
 ```
 
 ### Web
@@ -137,8 +143,9 @@ if you need more information.
 
 First create a `config.js` file to store the API key:
 ```bash
+source "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 cat << EOF > "${RYR_PROJECT_DIR}/web/src/config.js"
-var config = {"GOOGLE_WEB_MAPS_API_KEY": "<redacted>"};
+var config = {"GOOGLE_WEB_MAPS_API_KEY": "${RYR_WEB_GOOGLE_MAPS_API_KEY}"};
 EOF
 ```
 
