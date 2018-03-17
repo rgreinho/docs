@@ -44,17 +44,19 @@ Create a developer Key for:
 * [Yelp Fusion API](https://www.yelp.com/developers/v3/manage_app)
 * [Google Places API](https://developers.google.com/places/web-service)
 * [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ### Environment variables
 
-Once your accounts are setup, store your developer keys in a global environment file. This file should be located in `~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
+Once your accounts are setup, store your developer keys in a global environment file. This file should be located in
+`~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
 
-Export the configuration directory to an environment variable:
+Export the location of the configuration directory to an environment variable:
 ```bash
 export RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
 ```
 
-Create the `ryr-env.sh` script:
+Then create the `ryr-env.sh` script:
 ``` bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
@@ -62,6 +64,7 @@ export RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>
 export RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>
 export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>
 export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>
+export RYR_WEB_GOOGLE_MAPS_API_KEY=<redacted>
 EOF
 chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```
@@ -76,6 +79,7 @@ echo "<redacted>" > RYR_COLLECTOR_YELP_CLIENT_ID
 echo "<redacted>" > RYR_COLLECTOR_YELP_CLIENT_SECRET
 echo "<redacted>" > RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
 echo "<redacted>" > RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
+echo "<redacted>" > RYR_WEB_GOOGLE_MAPS_API_KEY
 ```
 
 At the end of the process, your `~/.config/ryr` folder should look like this:
@@ -98,7 +102,7 @@ Configure a folder which will contain the RYR projects:
 export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 ```
 
-Clone the projects (the `charts` and `docs` projects are optional as they are no required to run the RYR.):
+Clone the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
 ``` bash
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
@@ -112,6 +116,9 @@ Each project is provided with a `Makefile` and can be simply setup with the `mak
 ## Start the services
 
 ### External services
+
+This will spin up `minikube` and setup the external services that are required by RYR, like `postgresql`, `redis`,
+`rabbitmq`.
 
 ```bash
 cd "${RYR_PROJECT_DIR}/infra/kubernetes"
@@ -137,19 +144,10 @@ open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.724461555480
 
 ### Web
 
-For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
-[Maps JavaScript API ](https://developers.google.com/maps/documentation/javascript/get-api-key)
-if you need more information.
+!!! notes
+    Your Google Maps API key will automatically be pulled from the environment variables into the `src/config.js` file
+    by the `Makefile`. See the `init-config` target for more details.
 
-First create a `config.js` file to store the API key:
-```bash
-source "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
-cat << EOF > "${RYR_PROJECT_DIR}/web/src/config.js"
-var config = {"GOOGLE_WEB_MAPS_API_KEY": "${RYR_WEB_GOOGLE_MAPS_API_KEY}"};
-EOF
-```
-
-Then deploy it:
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
