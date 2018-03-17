@@ -646,19 +646,22 @@ a web page will pop up with the instructions to help you add it to Github.</p>
 <li><a href="https://www.yelp.com/developers/v3/manage_app">Yelp Fusion API</a></li>
 <li><a href="https://developers.google.com/places/web-service">Google Places API</a></li>
 <li><a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google Geocoding API</a></li>
+<li><a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Google Maps JavaScript API</a></li>
 </ul>
 <h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in <code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.</p>
-<p>Export the configuration directory to an environment variable:
+<p>Once your accounts are setup, store your developer keys in a global environment file. This file should be located in
+<code>~/.config/ryr</code>, which is your configuration directory for the request-yo-racks project.</p>
+<p>Export the location of the configuration directory to an environment variable:
 <div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.config/ryr&quot;</span>
 </pre></div></p>
-<p>Create the <code>ryr-env.sh</code> script:
+<p>Then create the <code>ryr-env.sh</code> script:
 <div class="codehilite"><pre><span></span>mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh&quot;</span>
 <span class="s">export RYR_COLLECTOR_YELP_CLIENT_ID=&lt;redacted&gt;</span>
 <span class="s">export RYR_COLLECTOR_YELP_CLIENT_SECRET=&lt;redacted&gt;</span>
 <span class="s">export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=&lt;redacted&gt;</span>
 <span class="s">export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=&lt;redacted&gt;</span>
+<span class="s">export RYR_WEB_GOOGLE_MAPS_API_KEY=&lt;redacted&gt;</span>
 <span class="s">EOF</span>
 chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/ryr-env.sh&quot;</span>
 </pre></div></p>
@@ -670,6 +673,7 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 <span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_YELP_CLIENT_SECRET
 <span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
 <span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
+<span class="nb">echo</span> <span class="s2">&quot;&lt;redacted&gt;&quot;</span> &gt; RYR_WEB_GOOGLE_MAPS_API_KEY
 </pre></div>
 
 <p>At the end of the process, your <code>~/.config/ryr</code> folder should look like this:
@@ -687,7 +691,7 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 <p>Configure a folder which will contain the RYR projects:
 <div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">RYR_PROJECT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/projects/request-yo-racks&quot;</span>
 </pre></div></p>
-<p>Clone the projects (the <code>charts</code> and <code>docs</code> projects are optional as they are no required to run the RYR.):
+<p>Clone the projects (the <code>charts</code> and <code>docs</code> projects are optional as they are no required to run RYR):
 <div class="codehilite"><pre><span></span>mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">for</span> project in api infra web<span class="p">;</span> <span class="k">do</span>
@@ -697,6 +701,8 @@ chmod <span class="m">400</span> <span class="s2">&quot;</span><span class="si">
 <p>Each project is provided with a <code>Makefile</code> and can be simply setup with the <code>make</code> command.</p>
 <h2 id="start-the-services">Start the services<a class="headerlink" href="#start-the-services" title="Permanent link">&para;</a></h2>
 <h3 id="external-services">External services<a class="headerlink" href="#external-services" title="Permanent link">&para;</a></h3>
+<p>This will spin up <code>minikube</code> and setup the external services that are required by RYR, like <code>postgresql</code>, <code>redis</code>,
+<code>rabbitmq</code>.</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/infra/kubernetes&quot;</span>
 make provision configure
 </pre></div>
@@ -714,20 +720,16 @@ Or browse it:
 <div class="codehilite"><pre><span></span>open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
 </pre></div></p>
 <h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
-<p>For the GoogleMaps element to work, you will need to add a GoogleMaps API Key. Refer to
-<a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Maps JavaScript API </a>
-if you need more information.</p>
-<p>First create a <code>config.js</code> file to store the API key:
-<div class="codehilite"><pre><span></span><span class="nb">source</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_GLOBAL_CONFIG_DIR</span><span class="si">}</span><span class="s2">/ryr-env.sh&quot;</span>
-cat <span class="s">&lt;&lt; EOF &gt; &quot;${RYR_PROJECT_DIR}/web/src/config.js&quot;</span>
-<span class="s">var config = {&quot;GOOGLE_WEB_MAPS_API_KEY&quot;: &quot;${RYR_WEB_GOOGLE_MAPS_API_KEY}&quot;};</span>
-<span class="s">EOF</span>
-</pre></div></p>
-<p>Then deploy it:
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>Your Google Maps API key will automatically be pulled from the environment variables into the <code>src/config.js</code> file
+by the <code>Makefile</code>. See the <code>init-config</code> target for more details.</p>
+</div>
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
 make build-docker deploy-minikube
-</pre></div></p>
+</pre></div>
+
 <p>Check the web application:
 <div class="codehilite"><pre><span></span>open http://www.192.168.99.100.nip.io/
 </pre></div></p>
