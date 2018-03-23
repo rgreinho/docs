@@ -65,6 +65,7 @@ export RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>
 export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>
 export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>
 export RYR_WEB_GOOGLE_MAPS_API_KEY=<redacted>
+export API_BASE_URL=http://api.192.168.99.100.nip.io/
 EOF
 chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```
