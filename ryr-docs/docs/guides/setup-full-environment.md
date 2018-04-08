@@ -10,7 +10,7 @@
 
     To start the procedure, simply run the following command:
     ```bash
-    bash <(curl -fsSL https://raw.githubusercontent.com/request-yo-racks/infra/master/bootstrap/bootstrap.sh)
+    bash <(curl -fsSL https://raw.githubusercontent.com/request-yo-racks/infra/master/bootstrap/bootstrap-osx.sh)
     ```
 
     At the end of the procedure, your SSH key will be automatically copied to your clipboard and
