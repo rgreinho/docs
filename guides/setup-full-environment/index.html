@@ -723,12 +723,12 @@ Or browse it:
 <h3 id="web">Web<a class="headerlink" href="#web" title="Permanent link">&para;</a></h3>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
-<p>Your Google Maps API key will automatically be pulled from the environment variables into the <code>src/config.js</code> file
-by the <code>Makefile</code>. See the <code>init-config</code> target for more details.</p>
+<p>Your Google Maps API key will automatically be pulled from the environment variables into the <code>src/config-dev.js</code>
+file by the <code>Makefile</code>. See the <code>init-config</code> target for more details.</p>
 </div>
 <div class="codehilite"><pre><span></span><span class="nb">eval</span> <span class="k">$(</span>minikube docker-env<span class="k">)</span>
 <span class="nb">cd</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RYR_PROJECT_DIR</span><span class="si">}</span><span class="s2">/web&quot;</span>
-make build-docker deploy-minikube
+<span class="nv">SUFFIX</span><span class="o">=</span>.dev make build-docker deploy-minikube
 </pre></div>
 
 <p>Check the web application:
