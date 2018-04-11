@@ -146,13 +146,13 @@ open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.724461555480
 ### Web
 
 !!! notes
-    Your Google Maps API key will automatically be pulled from the environment variables into the `src/config.js` file
-    by the `Makefile`. See the `init-config` target for more details.
+    Your Google Maps API key will automatically be pulled from the environment variables into the `src/config-dev.js`
+    file by the `Makefile`. See the `init-config` target for more details.
 
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
-make build-docker deploy-minikube
+SUFFIX=.dev make build-docker deploy-minikube
 ```
 
 Check the web application:
