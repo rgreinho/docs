@@ -48,6 +48,14 @@ Create a developer Key for:
 
 ### Environment variables
 
+!!! tips
+    Add the RYR variables to your `~/.bash_profile` to avoid exporting them every time:
+    ```bash
+    # Set RYR variables.
+    export RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
+    export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
+    ```
+
 Once your accounts are setup, store your developer keys in a global environment file. This file should be located in
 `~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
 
@@ -60,11 +68,11 @@ Then create the `ryr-env.sh` script:
 ``` bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
-export RYR_COLLECTOR_YELP_CLIENT_ID=<redacted>
-export RYR_COLLECTOR_YELP_CLIENT_SECRET=<redacted>
-export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=<redacted>
-export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=<redacted>
-export RYR_WEB_GOOGLE_MAPS_API_KEY=<redacted>
+export RYR_COLLECTOR_YELP_CLIENT_ID=foo
+export RYR_COLLECTOR_YELP_CLIENT_SECRET=foo
+export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=foo
+export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=foo
+export RYR_WEB_GOOGLE_MAPS_API_KEY=foo
 export API_BASE_URL=http://api.192.168.99.100.nip.io/
 EOF
 chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
@@ -76,11 +84,11 @@ For creating Kubernetes secrets, you need to create one file per key in the
 ```bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
 cd "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
-echo "<redacted>" > RYR_COLLECTOR_YELP_CLIENT_ID
-echo "<redacted>" > RYR_COLLECTOR_YELP_CLIENT_SECRET
-echo "<redacted>" > RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
-echo "<redacted>" > RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
-echo "<redacted>" > RYR_WEB_GOOGLE_MAPS_API_KEY
+echo "foo" > RYR_COLLECTOR_YELP_CLIENT_ID
+echo "foo" > RYR_COLLECTOR_YELP_CLIENT_SECRET
+echo "foo" > RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
+echo "foo" > RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
+echo "foo" > RYR_WEB_GOOGLE_MAPS_API_KEY
 ```
 
 At the end of the process, your `~/.config/ryr` folder should look like this:
@@ -96,6 +104,11 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 └── ryr-env.sh
 ```
 
+## Fork the projects
+
+Go to the [Request Yo Racks](https://github.com/request-yo-racks) organization on Github and
+[fork](https://help.github.com/articles/fork-a-repo/) the `infra`, `api`, and `web` projects (the `charts` and `docs` projects are optional as they are no required to run RYR).
+
 ## Clone the projects
 
 Configure a folder which will contain the RYR projects:
@@ -105,10 +118,11 @@ export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 
 Clone the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
 ``` bash
+export GH_USER=<your_github_user_name>
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api infra web; do
-  git clone git@github.com:request-yo-racks/${project}.git
+  git clone git@github.com:${GH_USER}/${project}.git
 done
 ```
 
