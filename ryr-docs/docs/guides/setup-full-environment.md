@@ -4,7 +4,7 @@
 
 !!! tips
     A script in the
-    [infra](https://github.com/request-yo-racks/infra/tree/master/bootstrap/bootstrap.sh)
+    [infra](https://github.com/request-yo-racks/infra/tree/master/bootstrap)
     repository can assist you to install the prerequisites software automatically and configure your Github account
     (**OS X only**).
 
