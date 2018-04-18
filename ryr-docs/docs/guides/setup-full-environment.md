@@ -16,6 +16,9 @@
     At the end of the procedure, your SSH key will be automatically copied to your clipboard and
     a web page will pop up with the instructions to help you add it to Github.
 
+    If nothing pops up, run `export BS_SILENT=0`, then replay the script.
+
+
 ### Github
 
 * A [Github](github.com) account
@@ -46,7 +49,7 @@ Create a developer Key for:
 * [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-### Environment variables
+## Environment variables
 
 !!! tips
     Add the RYR variables to your `~/.bash_profile` to avoid exporting them every time:
@@ -116,9 +119,13 @@ Configure a folder which will contain the RYR projects:
 export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 ```
 
+Configure your Github user:
+```bash
+export GH_USER=<your_github_user_name>
+```
+
 Clone the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
 ``` bash
-export GH_USER=<your_github_user_name>
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api infra web; do
