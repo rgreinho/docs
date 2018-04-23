@@ -1,6 +1,6 @@
 # Request Yo Racks (Now)!
 
-The city of Austin offers the possibility to apply for the [free installation of bike corrals on the right of way/parking spot close to businesses](http://www.austintexas.gov/bicycle). The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).
+The city of Austin offers the possibility to apply for the [free installation of bike corrals on the right of way/parking spot close to businesses](https://www.austintexas.gov/page/bicycle-parking). The process requires the requester to write an email to a specific service of the city, and include additional information about the location and the business owner(s).
 
 But there are two problems with this approach:
 
