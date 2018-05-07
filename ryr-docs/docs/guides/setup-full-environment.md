@@ -112,7 +112,8 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 Go to the [Request Yo Racks](https://github.com/request-yo-racks) organization on Github and
 [fork](https://help.github.com/articles/fork-a-repo/) the `infra`, `api`, and `web` projects (the `charts` and `docs` projects are optional as they are no required to run RYR).
 
-## Clone the projects
+
+## Clone or update the projects
 
 Configure a folder which will contain the RYR projects:
 ```bash
@@ -124,12 +125,12 @@ Configure your Github user:
 export GH_USER=<your_github_user_name>
 ```
 
-Clone the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
+Clone or update the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
 ``` bash
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api infra web; do
-  git clone git@github.com:${GH_USER}/${project}.git
+  git clone git@github.com:${GH_USER}/${project}.git || git -C ${project}/ pull upstream master
 done
 ```
 
