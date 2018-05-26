@@ -130,8 +130,8 @@ Clone or update the projects (the `charts` and `docs` projects are optional as t
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
 for project in api charts docs infra web; do
-  git clone git@github.com:${GH_USER}/${project}.git || git -C ${project}/ pull upstream master;
-  git  -C ${project} remote add upstream git@github.com:request-yo-racks/${project}.git;
+  git clone git@github.com:${GH_USER}/${project}.git 2> /dev/null || git -C ${project}/ pull upstream master;
+  git  -C ${project} remote add upstream git@github.com:request-yo-racks/${project}.git 2> /dev/null;
 done
 ```
 
