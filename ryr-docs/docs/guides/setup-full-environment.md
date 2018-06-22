@@ -154,7 +154,7 @@ make provision configure
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/api"
-make build-docker deploy-minikube
+make build-docker deploy-minikube-api deploy-minikube-celery-worker
 ```
 
 Test your setup from a terminal:
