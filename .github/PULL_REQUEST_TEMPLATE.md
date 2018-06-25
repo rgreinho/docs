@@ -51,4 +51,4 @@ Place the URL of the issue here it this PR fixes an existing issue.
 Use either the *FULL* URL (preferred) or the `Username/Repository#`
 syntax.
 -->
-Fixes request-yo-racks/infra#<issue_number>
+Fixes request-yo-racks/docs#<issue_number>
