@@ -16,7 +16,7 @@
     At the end of the procedure, your SSH key will be automatically copied to your clipboard and
     a web page will pop up with the instructions to help you add it to Github.
 
-    If nothing pops up, run `export BS_SILENT=0`, then replay the script.
+    If nothing pops up, run `export RYR_BOOTSTRAP_SILENT=0`, then replay the script.
 
 
 ### Github
