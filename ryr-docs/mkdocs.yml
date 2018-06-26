@@ -18,6 +18,8 @@ theme:
     icon: directions_bike
   feature:
     tabs: true
+  favicon: 'img/favicon.ico'
+
 
 markdown_extensions:
   - admonition
