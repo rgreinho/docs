@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.7.0-stretch-browsers
 
     working_directory: ~/repo
 
@@ -10,11 +10,11 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - deps-{{ checksum "requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - deps-
+      # - restore_cache:
+      #     keys:
+      #     - deps-{{ checksum "requirements.txt" }}
+      #     # fallback to using the latest cache if no exact match is found
+      #     - deps-
 
       - run:
           name: Install dependencies.
@@ -33,7 +33,7 @@ jobs:
 
   publish:
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.7.0-stretch-browsers
 
     working_directory: ~/repo
 

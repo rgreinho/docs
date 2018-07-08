@@ -7,6 +7,7 @@ pages:
     - Technical Overview: 'contributor-zone/technical-overview.md'
   - Guides:
     - Setup full environment: 'guides/setup-full-environment.md'
+    - Rebase your branch: 'guides/update-branch.md'
   - About:
     - 'License': 'about/license.md'
 theme:
