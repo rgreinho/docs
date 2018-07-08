@@ -39,10 +39,10 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - deps-{{ checksum "requirements.txt" }}
-          - deps-
+      # - restore_cache:
+      #     keys:
+      #     - deps-{{ checksum "requirements.txt" }}
+      #     - deps-
 
       - add_ssh_keys:
           fingerprints:
