@@ -6,8 +6,8 @@ pages:
     - Goals & Strategy: contributor-zone/goals-strategy.md
     - Technical Overview: 'contributor-zone/technical-overview.md'
   - Guides:
-    - Setup full environment: 'guides/setup-full-environment.md'
-    - Rebase your branch: 'guides/update-branch.md'
+    - Setting up a local environment: 'guides/setup-full-environment.md'
+    - Keeping your branch up-to-date: 'guides/update-branch.md'
   - About:
     - 'License': 'about/license.md'
 theme:
@@ -21,6 +21,8 @@ theme:
     tabs: true
   favicon: 'img/favicon.ico'
 
+extra_css:
+    - css/extra.css
 
 markdown_extensions:
   - admonition

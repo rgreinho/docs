@@ -59,15 +59,15 @@ Create a developer Key for:
     export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
     ```
 
-Once your accounts are setup, store your developer keys in a global environment file. This file should be located in
+1. Once your accounts are setup, store your developer keys in a global environment file. This file should be located in
 `~/.config/ryr`, which is your configuration directory for the request-yo-racks project.
 
-Export the location of the configuration directory to an environment variable:
+2. Export the location of the configuration directory to an environment variable.
 ```bash
 export RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
 ```
 
-Then create the `ryr-env.sh` script:
+3. Then create the `ryr-env.sh` script.
 ``` bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
@@ -81,9 +81,7 @@ EOF
 chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```
 
-For creating Kubernetes secrets, you need to create one file per key in the
-`~/.config/ryr/kubernetes-secrets` folder:
-
+4. For creating Kubernetes secrets, you need to create one file per key in the `~/.config/ryr/kubernetes-secrets` folder.
 ```bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
 cd "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
@@ -115,17 +113,17 @@ Go to the [Request Yo Racks](https://github.com/request-yo-racks) organization o
 
 ## Clone or update the projects
 
-Configure a folder which will contain the RYR projects:
+1. Configure a folder which will contain the RYR projects.
 ```bash
 export RYR_PROJECT_DIR="${HOME}/projects/request-yo-racks"
 ```
 
-Configure your Github user:
+2. Configure your Github user.
 ```bash
 export GH_USER=<your_github_user_name>
 ```
 
-Clone or update the projects (the `charts` and `docs` projects are optional as they are no required to run RYR):
+3. Clone or update the projects (the `charts` and `docs` projects are optional as they are no required to run RYR).
 ``` bash
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
