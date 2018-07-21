@@ -5,6 +5,7 @@ pages:
     - Austin Design Week 2017: 'contributor-zone/adw-2017.md'
     - Goals & Strategy: contributor-zone/goals-strategy.md
     - Technical Overview: 'contributor-zone/technical-overview.md'
+    - Services & costs: 'contributor-zone/services-costs.md'
   - Guides:
     - Setting up a local environment: 'guides/setup-full-environment.md'
     - Keeping your branch up-to-date: 'guides/update-branch.md'

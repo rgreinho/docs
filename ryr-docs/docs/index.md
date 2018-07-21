@@ -9,7 +9,7 @@ But there are two problems with this approach:
 * The second one is that, in spite of the fact that the people in charge of the program are willing to help, the process is not completely straightforward:
 > "There will generally be at least a few back and forth messages associated with a bike parking request."
 
-“Request yo rack” proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:
+“Request yo racks” proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:
 
 1. Select the location on the map.
 2. Review/Edit the information.
