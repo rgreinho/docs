@@ -11,6 +11,4 @@ But there are two problems with this approach:
 
 “Request yo racks” proposes to simplify the process by automating all these tasks, and reducing the requester efforts to 3 simple steps:
 
-1. Select the location on the map.
-2. Review/Edit the information.
-3. Submit.
+![how it works](img/how-it-works.png)
