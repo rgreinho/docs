@@ -6,3 +6,5 @@ rules:
       required_status_checks:
         contexts:
         - 'ci/circleci: build'
+    merge_strategy:
+      method: squash
