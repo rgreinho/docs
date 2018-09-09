@@ -9,6 +9,9 @@ pages:
   - Guides:
     - Setting up a local environment: 'guides/setup-full-environment.md'
     - Keeping your branch up-to-date: 'guides/update-branch.md'
+    - Installing Git extras: 'guides/git-extras.md'
+    - Installing Hub: 'guides/install-hub.md'
+    - Installing Liquidprompt: 'guides/install-liquidprompt.md'
   - About:
     - 'License': 'about/license.md'
 theme:
