@@ -43,7 +43,7 @@ The Request Yo Racks infrastructure uses the free or Open Source tier for all th
 *   [Github](https://github.com) (with Github pages): Code repositories and static site hosting
 *   [Circle CI](https://circleci.com/): Continuous Integration
 *   [Mergify.io](https://mergify.io/): Automatically merge approved Pull Requests
-*   [Codecov.io](https://codecov.io/): Ensure new code contributions come with unit tests
+*   [Coveralls.io](https://coveralls.io/): Ensure new code contributions come with unit tests
 *   [Gitmate.io](https://gitmate.io/): Automate some basic administration tasks
 *   [Docker Hub](https://hub.docker.com/): Registry and pipeline for Docker images
 *   [Let’s Encrypt](https://letsencrypt.org/): Free, automated, and open Certificate Authority

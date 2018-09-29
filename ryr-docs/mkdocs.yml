@@ -2,10 +2,11 @@ site_name: Request Yo Racks Documentation
 pages:
   - Home: index.md
   - Contributor Zone:
-    - Austin Design Week 2017: 'contributor-zone/adw-2017.md'
-    - Goals & Strategy: contributor-zone/goals-strategy.md
+    - RYR 3.0 concepts: 'contributor-zone/ryr3.0-concepts.md'
     - Technical Overview: 'contributor-zone/technical-overview.md'
+    - Austin Design Week 2017: 'contributor-zone/adw-2017.md'
     - Services & costs: 'contributor-zone/services-costs.md'
+    - Project Planning Canvas: contributor-zone/goals-strategy.md
   - Guides:
     - Setting up a local environment: 'guides/setup-full-environment.md'
     - Keeping your branch up-to-date: 'guides/update-branch.md'
