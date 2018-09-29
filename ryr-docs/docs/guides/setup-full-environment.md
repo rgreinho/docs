@@ -45,9 +45,7 @@ First, you will need:
 Create a developer Key for:
 
 * [Yelp Fusion API](https://www.yelp.com/developers/v3/manage_app)
-* [Google Places API](https://developers.google.com/places/web-service)
-* [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
-* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/get-api-key)
+* [Google Maps Platform API Key](https://cloud.google.com/maps-platform/) for `Maps` and `Places`
 
 ## Environment variables
 
@@ -71,10 +69,8 @@ export RYR_GLOBAL_CONFIG_DIR="${HOME}/.config/ryr"
 ``` bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}"
 cat << EOF > "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
-export RYR_COLLECTOR_YELP_CLIENT_ID=foo
-export RYR_COLLECTOR_YELP_CLIENT_SECRET=foo
+export RYR_COLLECTOR_YELP_API_KEY=foo
 export RYR_COLLECTOR_GOOGLE_PLACES_API_KEY=foo
-export RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY=foo
 export RYR_WEB_GOOGLE_MAPS_API_KEY=foo
 export API_BASE_URL=http://api.192.168.99.100.nip.io/
 EOF
@@ -85,10 +81,8 @@ chmod 400 "${RYR_GLOBAL_CONFIG_DIR}/ryr-env.sh"
 ```bash
 mkdir -p "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
 cd "${RYR_GLOBAL_CONFIG_DIR}/kubernetes-secrets"
-echo "foo" > RYR_COLLECTOR_YELP_CLIENT_ID
-echo "foo" > RYR_COLLECTOR_YELP_CLIENT_SECRET
+echo "foo" > RYR_COLLECTOR_YELP_API_KEY
 echo "foo" > RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
-echo "foo" > RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
 echo "foo" > RYR_WEB_GOOGLE_MAPS_API_KEY
 ```
 
@@ -97,10 +91,8 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 [~/.config/ryr] $ tree -L 2
 .
 ├── kubernetes-secrets
-│   ├── RYR_COLLECTOR_GOOGLE_GEOCODING_API_KEY
 │   ├── RYR_COLLECTOR_GOOGLE_PLACES_API_KEY
-│   ├── RYR_COLLECTOR_YELP_CLIENT_ID
-│   ├── RYR_COLLECTOR_YELP_CLIENT_SECRET
+│   ├── RYR_COLLECTOR_YELP_API_KEY
 │   └── RYR_WEB_GOOGLE_MAPS_API_KEY
 └── ryr-env.sh
 ```
@@ -152,7 +144,7 @@ make provision configure
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/api"
-make build-docker deploy-minikube-api deploy-minikube-celery-worker
+make build-docker make deploy-minikube-{api,flower,celery-worker}
 ```
 
 Test your setup from a terminal:
@@ -173,10 +165,11 @@ open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.724461555480
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
-SUFFIX=.dev make build-docker deploy-minikube
+make
+polymer serve
 ```
 
 Check the web application:
 ```bash
-open http://www.192.168.99.100.nip.io/
+open http://127.0.0.1:8081
 ```
