@@ -1,6 +1,8 @@
-# RYR 3.0 Concepts
+# Request Yo Racks 3.0 Concepts
 
-RYR 3.0 is a **MAJOR** rewrite of the project.
+RYR 3.0 is a **MAJOR** rewrite of the project. And RYR being a collection of projects, changes will happen in most of them.
+
+![RYR Family](img/ryr-family.png "ryr family")
 
 The reasons for such a rewrite are mainly:
 
@@ -10,17 +12,15 @@ The reasons for such a rewrite are mainly:
     * Benefit from a more modern tooling
     * Gain more contributors
 
-Working with [Polymer] was cool, but it was very hard to find people interested in helping. Switching to [ReactJS] gave us the opportunity to attract more contributors very quickly. It also made it way quicker/easier to find documentation, examples and tool.
+Working with [Polymer] was cool, but it was very hard to find people interested in helping. Switching to [ReactJS] gave us the opportunity to attract more contributors very quickly. It also made it way quicker/easier to find documentation, examples and tools.
 
 ## Projects
-
-Request Yo Racks being a collection of projects, changes will happen in most of them.
 
 ### Frontend
 
 As mentioned previously, we are switching from [Polymer] to [ReactJS]. This is the biggest task!
 
-In addition of this we want our components to be documented and tested. We want to be able to use them individually
+In addition to this we want our components to be documented and tested. We want to be able to use them individually
 easily and provide demos (as a form a test and documentation).
 
 We plan on using [Ant](https://ant.design/) and [Ant Mobile](https://mobile.ant.design/) for the UI component libraries.
@@ -48,7 +48,7 @@ List of [Issues](https://github.com/request-yo-racks/api/issues).
 Documentation is a key principle of this project. There is always something to write about or some room for improvement.
 
 We have very good overview documentation, a great setup guide, but each of our project should have individual
-documentation to help contributors and users use them.
+documentation to help contributors use them.
 
 ### Infrastructure
 
@@ -59,7 +59,9 @@ List of [Issues](https://github.com/request-yo-racks/infra/issues).
 
 ### Artwork / Branding
 
-The project needs a stronger identity. We have cool logos, a nice design, but we have nothing defining the "brand" of
+The project needs a stronger identity. 
+
+We have cool logos, a nice design, but we have nothing defining the "brand" of
 our project.
 
 ## Side projects
