@@ -13,6 +13,8 @@ pages:
     - Installing Git extras: 'guides/git-extras.md'
     - Installing Hub: 'guides/install-hub.md'
     - Installing Liquidprompt: 'guides/install-liquidprompt.md'
+  - Learning:
+    - Learning resources: 'learning/learning.md'
   - About:
     - 'License': 'about/license.md'
 theme:
