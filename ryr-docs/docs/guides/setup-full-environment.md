@@ -97,6 +97,9 @@ At the end of the process, your `~/.config/ryr` folder should look like this:
 └── ryr-env.sh
 ```
 
+!!! tips
+    If for any reasone you need to remove the new line character (`\n`) in one of the files, refer to this [StackExchange post](https://unix.stackexchange.com/a/254753).
+
 ## Fork the projects
 
 Go to the [Request Yo Racks](https://github.com/request-yo-racks) organization on Github and
@@ -119,9 +122,9 @@ export GH_USER=<your_github_user_name>
 ``` bash
 mkdir -p "${RYR_PROJECT_DIR}"
 cd "${RYR_PROJECT_DIR}"
-for project in api charts docs infra web; do
+for project in api charts docs infra landing-page web; do
   git clone git@github.com:${GH_USER}/${project}.git 2> /dev/null || git -C ${project}/ pull upstream master;
-  git  -C ${project} remote add upstream git@github.com:request-yo-racks/${project}.git 2> /dev/null;
+  git -C ${project} remote add upstream git@github.com:request-yo-racks/${project}.git 2> /dev/null;
 done
 ```
 
@@ -144,17 +147,19 @@ make provision configure
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/api"
-make build-docker make deploy-minikube-{api,flower,celery-worker}
+make build-docker deploy-minikube-{api,flower,celery-worker}
 ```
 
 Test your setup from a terminal:
 ```bash
-curl -i http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
+curl -X GET \
+  'http://api.192.168.99.100.nip.io/1.0/places?location=30.318673580117846,-97.72446155548096'
 ```
-Or browse it:
-```bash
-open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.72446155548096
-```
+Or from a web browser:
+<http://api.192.168.99.100.nip.io/1.0/places?location=30.318673580117846,-97.72446155548096>
+
+You can also browse the API documentation:
+<http://api.192.168.99.100.nip.io/1.0/ui>
 
 ### Web
 
@@ -165,11 +170,11 @@ open http://api.192.168.99.100.nip.io/places/30.318673580117846,-97.724461555480
 ```bash
 eval $(minikube docker-env)
 cd "${RYR_PROJECT_DIR}/web"
-make
-polymer serve
+npm i
+npm run dev
 ```
 
 Check the web application:
 ```bash
-open http://127.0.0.1:8081
+open http://127.0.0.1:8000
 ```
